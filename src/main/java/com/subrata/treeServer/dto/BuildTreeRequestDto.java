@@ -10,7 +10,6 @@ public class BuildTreeRequestDto {
     }
 
     public void setElements(ArrayList<Integer> elements) {
-        System.out.println("Elements: " + elements);
         this.elements = elements;
     }
 }
