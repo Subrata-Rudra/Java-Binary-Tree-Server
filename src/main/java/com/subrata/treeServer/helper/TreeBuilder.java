@@ -8,6 +8,9 @@ import com.subrata.treeServer.dto.TreeNodeDto;
 public class TreeBuilder {
     public static TreeNodeDto levelOrderBuild(ArrayList<Integer> arr) {
         LinkedList<TreeNodeDto> queue = new LinkedList<>();
+        if (arr == null || arr.isEmpty() || arr.get(0) == null) {
+            return null;
+        }
         TreeNodeDto root = new TreeNodeDto();
         if (arr.getFirst() != null) {
             root.setData(arr.getFirst());

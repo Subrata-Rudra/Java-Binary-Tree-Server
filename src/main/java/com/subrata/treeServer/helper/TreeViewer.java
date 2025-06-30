@@ -1,12 +1,16 @@
 package com.subrata.treeServer.helper;
 
 import com.subrata.treeServer.dto.TreeNodeDto;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 
 public class TreeViewer {
     private static void inorderViewHelperDfs(ArrayList<Integer> inorderWiseNodes, TreeNodeDto curr) {
+        if (curr == null) {
+            return;
+        }
         if (curr.getLeft() != null) {
             inorderViewHelperDfs(inorderWiseNodes, curr.getLeft());
         }
@@ -17,6 +21,9 @@ public class TreeViewer {
     }
 
     private static void preorderViewHelperDfs(ArrayList<Integer> preorderWiseNodes, TreeNodeDto curr) {
+        if (curr == null) {
+            return;
+        }
         preorderWiseNodes.add(curr.getData());
         if (curr.getLeft() != null) {
             preorderViewHelperDfs(preorderWiseNodes, curr.getLeft());
@@ -27,6 +34,9 @@ public class TreeViewer {
     }
 
     private static void postorderViewHelperDfs(ArrayList<Integer> postorderWiseNodes, TreeNodeDto curr) {
+        if (curr == null) {
+            return;
+        }
         if (curr.getLeft() != null) {
             postorderViewHelperDfs(postorderWiseNodes, curr.getLeft());
         }

@@ -88,7 +88,6 @@ public class TreeController {
         response.setInorder(inorderWiseView);
         response.setPreorder(preorderWiseView);
         response.setPostorder(postorderWiseView);
-        response.setPostorder(postorderWiseView);
         response.setLevelorder(levelorderWiseView);
         return response;
     }
