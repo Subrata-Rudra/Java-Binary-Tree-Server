@@ -1,2 +1,2 @@
 # Java Binary Tree Spring Boot Server
-![Server's Home Page Demo]()
+<img src="./Readme Media/demo.gif" alt="Server's Home Page Demo">
