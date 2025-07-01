@@ -74,7 +74,9 @@ public class TreeViewer {
         // Build the level order traversal HashMap
         HashMap<Integer, ArrayList<Integer>> levelWiseNodes = new HashMap<>();
         LinkedList<TreeNodeDto> queue = new LinkedList<>();
-        queue.add(root);
+        if (root != null) {
+            queue.add(root);
+        }
         int ind = 0;
         while (!queue.isEmpty()) {
             ArrayList<TreeNodeDto> nextLevelNodes = new ArrayList<>();

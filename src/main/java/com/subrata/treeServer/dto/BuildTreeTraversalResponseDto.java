@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class BuildTreeTraversalResponseDto {
-    private int root;
+    private Integer root;
     private ArrayList<Integer> inorder;
     private ArrayList<Integer> preorder;
     private ArrayList<Integer> postorder;
     private HashMap<Integer, ArrayList<Integer>> levelorder;
 
-    public int getRoot() {
+    public Integer getRoot() {
         return root;
     }
 
-    public void setRoot(int root) {
+    public void setRoot(Integer root) {
         this.root = root;
     }
 

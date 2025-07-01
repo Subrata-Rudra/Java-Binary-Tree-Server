@@ -12,6 +12,7 @@ import com.subrata.treeServer.helper.TreeBuilder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 public class TreeController {
@@ -71,8 +72,14 @@ public class TreeController {
     }
 
     @PostMapping("/buildAndGetTree")
-    public TreeNodeDto buildAndGetTree(@RequestBody BuildTreeRequestDto request) {
-        TreeNodeDto response = TreeBuilder.levelOrderBuild(request.getElements());
+    public Map<String, Object> buildAndGetTree(@RequestBody BuildTreeRequestDto request) {
+        TreeNodeDto tree = TreeBuilder.levelOrderBuild(request.getElements());
+        Map<String, Object> response = new HashMap<>();
+        if (tree == null) {
+            response.put("message", "Tree could not be built. Input list is null or empty.");
+        } else {
+            response.put("tree", tree);
+        }
         return response;
     }
 
@@ -84,7 +91,9 @@ public class TreeController {
         ArrayList<Integer> postorderWiseView = TreeViewer.postorderView(root);
         HashMap<Integer, ArrayList<Integer>> levelorderWiseView = TreeViewer.levelOrderView(root);
         BuildTreeTraversalResponseDto response = new BuildTreeTraversalResponseDto();
-        response.setRoot(root.getData());
+        if (root != null) {
+            response.setRoot(root.getData());
+        }
         response.setInorder(inorderWiseView);
         response.setPreorder(preorderWiseView);
         response.setPostorder(postorderWiseView);
